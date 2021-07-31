@@ -6,7 +6,8 @@ phases:
     commands: 
     - echo "CODEBUILD_RESOLVED_SOURCE_VERSION => $CODEBUILD_RESOLVED_SOURCE_VERSION"
     - echo "CODEBUILD_WEBHOOK_HEAD_REF => $CODEBUILD_WEBHOOK_HEAD_REF"
-      file=`git status --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
+      git --version
+      file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION
     - echo "$file"
      if [ "$file" == "compaction/file-1.txt" ]
      then
