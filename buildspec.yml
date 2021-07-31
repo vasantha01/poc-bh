@@ -11,7 +11,7 @@ file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION
 echo "$file"
 if [ "$file" == "compaction/file1.txt" ]
 then
-aws s3 cp $file s3://codepipeline-artifacts-bucket/file1.txt
+aws s3 cp $file s3://codepipeline-artifacts-bucket/file-1.txt
 aws codepipeline start-pipeline-execution --name compaction-dev-pipeline
 else
 echo "Popat"
