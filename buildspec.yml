@@ -9,7 +9,7 @@ echo "CODEBUILD_WEBHOOK_HEAD_REF => $CODEBUILD_WEBHOOK_HEAD_REF"
 git version 
 file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
 echo "$file"
-if [ "$file" == "compaction/test.txt" ]
+if [ "$file" == "compaction/file1.txt" ]
 then
 aws s3 cp $file s3://codepipeline-artifacts-bucket/test.txt
 aws codepipeline start-pipeline-execution --name compaction-dev-pipeline
