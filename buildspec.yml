@@ -1,6 +1,7 @@
 version: 0.2
-  env:
+env:
     git-credential-helper: yes 
+phases:  
   build:
     commands: 
     - echo "CODEBUILD_RESOLVED_SOURCE_VERSION => $CODEBUILD_RESOLVED_SOURCE_VERSION"
