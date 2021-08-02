@@ -14,5 +14,6 @@ phases:
      aws s3 cp $file s3://codepipeline-artifacts-bucket1/file-1.txt
      aws codepipeline start-pipeline-execution --name compaction-dev-pipeline
      else
-    - echo "Popat"
+    - echo "running code"
       fi
+      
