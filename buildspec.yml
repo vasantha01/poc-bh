@@ -9,7 +9,6 @@ phases:
       git  version
       file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
     - echo "$file"
-      for val in $file
       if [ "val" == "compaction/*" ]
       then
       aws s3 cp $file s3://lambdagluepipedemo/glueartifacts/*
