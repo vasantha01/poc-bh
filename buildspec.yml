@@ -7,14 +7,15 @@ phases:
     - echo "CODEBUILD_RESOLVED_SOURCE_VERSION => $CODEBUILD_RESOLVED_SOURCE_VERSION"
     - echo "CODEBUILD_WEBHOOK_HEAD_REF => $CODEBUILD_WEBHOOK_HEAD_REF"
       git  version
-      file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
+      file1=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
+      file2=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION
     - echo "$file"
-     if [ "$file" == "compaction/*" ]
+     if [ "$file1" == "compaction/*" ]
      then
-     aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
+     aws s3 cp $file1 s3://codepipeline-artifacts-bucket1/*
      aws codepipeline start-pipeline-execution --name IngestionLambdaPipeline
-     elif [ "$file" == "Ingestion/*" ]
-     aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
+     elif [ "$file2" == "Ingestion/*" ]
+     aws s3 cp $file2 s3://codepipeline-artifacts-bucket1/*
      aws codepipeline start-pipeline-execution --name Compaction_Glue_Pipepine
      else
     - echo "running code"
