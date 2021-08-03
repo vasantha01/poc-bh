@@ -11,15 +11,13 @@ phases:
     - echo "$file1"
       file2=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
     - echo "$file2"
-      if [ "$file1" == "compaction/*" ]
+      for val in $file
+      if [ "val" == "compaction/file-1.txt" ]
       then
-      aws s3 cp $file1 s3://codepipeline-artifacts-bucket1/Compaction_Glue_Pipe/*
+      aws s3 cp $file s3://codepipeline-artifacts-bucket1/file-1.txt
       aws codepipeline start-pipeline-execution --name Compaction_Glue_Pipepine
-      elif [ "$file2" == "Ingestion/*" ]
-      aws s3 cp $file2 s3://codepipeline-artifacts-bucket1/IngestionLambdaPipel/*
-      aws codepipeline start-pipeline-execution --name IngestionLambdaPipeline
       else
-    - echo "running code"
+    - echo "Popat"
       fi
    
       
