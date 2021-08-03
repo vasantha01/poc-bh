@@ -23,7 +23,5 @@ aws codepipeline start-pipeline-execution --name compaction-dev-pipeline
 else
 
  
-echo "Popat"
-
- 
+echo "Popat" 
 fi
