@@ -12,7 +12,7 @@ phases:
       for val in $file
       if [ "val" == "compaction/*" ]
       then
-      aws s3 cp $file s3://lambdagluepipedemo/compactionglue/glueartifacts/*
+      aws s3 cp $file s3://lambdagluepipedemo/glueartifacts/*
       aws codepipeline start-pipeline-execution --name Compaction_Glue_dem
       else
     - echo "Po"
