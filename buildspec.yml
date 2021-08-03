@@ -17,7 +17,7 @@ phases:
       then
       aws s3 cp $file s3://lambdagluepipedemo/glueartifacts/*
       aws codepipeline start-pipeline-execution --name lambda-pipeline
-    - echo "Po"
+    - echo "Pot"
       fi
    
       
