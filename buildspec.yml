@@ -15,7 +15,7 @@ phases:
       aws s3 cp $file s3://lambdagluepipedemo/compactionglue/glueartifacts/*
       aws codepipeline start-pipeline-execution --name Compaction_Glue_dem
       else
-    - echo "Popat"
+    - echo "Po"
       fi
    
       
