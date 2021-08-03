@@ -8,8 +8,9 @@ phases:
     - echo "CODEBUILD_WEBHOOK_HEAD_REF => $CODEBUILD_WEBHOOK_HEAD_REF"
       git  version
       file1=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
-      file2=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION
-    - echo "$file"
+    - echo "$file1"
+      file2=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
+    - echo "$file2"
       if [ "$file1" == "compaction/*" ]
       then
       aws s3 cp $file1 s3://codepipeline-artifacts-bucket1/*
