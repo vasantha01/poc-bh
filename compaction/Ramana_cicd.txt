@@ -1,0 +1,17 @@
+aws lambda update-function-code  --function-name  test1 --zip-file fileb://lambda.zip
+
+VCS- .py files stored
+S3
+Local
+ 
+build
+zip 
+ 
+
+using cli deploy lambda code
+
+CP
+VCS-.PY
+BUID
+
+
