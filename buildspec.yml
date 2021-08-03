@@ -17,7 +17,7 @@ phases:
       aws s3 cp $file s3://codepipeline-artifacts-bucket1/file-1.txt
       aws codepipeline start-pipeline-execution --name Compaction_Glue_Pipepine
       else
-    - echo "Popat"
+    - echo "run"
       fi
    
       
