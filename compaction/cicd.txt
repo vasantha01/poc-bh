@@ -1,0 +1,3 @@
+single CFN all resource are configured pass to infra cicd pipeline
+
+montiontoring one cfn template
