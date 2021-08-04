@@ -9,15 +9,16 @@ phases:
       git  version
       file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
     - echo "$file"
-      if [ "$file" == "compaction/*" ]
-      then
-      aws s3 cp $file s3://lambdagluepipedemo/glueartifacts/*
+      while [ "$file" =="compaction/*" ]    # this is loop1
+      do
+      aws s3 cp $file s3://lambdagluepipedemo/*
       aws codepipeline start-pipeline-execution --name Compaction_Glue_dem
-      elif [ "$file" == "Ingestion/*" ]
-      then
-      aws s3 cp $file s3://lambdagluepipedemo/glueartifacts/*
+      while [ "$file" == "Ingestion/*" ]  # this is loop2
+      do
+      aws s3 cp $file s3://lambdagluepipedemo/*
       aws codepipeline start-pipeline-execution --name lambda-pipeline
+      done
     - echo "Pot"
-      fi
+      done
    
       
