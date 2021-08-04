@@ -7,14 +7,12 @@ phases:
     - echo "CODEBUILD_RESOLVED_SOURCE_VERSION => $CODEBUILD_RESOLVED_SOURCE_VERSION"
     - echo "CODEBUILD_WEBHOOK_HEAD_REF => $CODEBUILD_WEBHOOK_HEAD_REF"
       git  version
-      file1=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
-    - echo "$file1"
-      file2=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
-    - echo "$file2"
+      file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
+    - echo "$file"
       for val in $file
-      if [ "val" == "compaction/file-1.txt" ]
+      if [ "val" == "compaction/*" ]
       then
-      aws s3 cp $file s3://codepipeline-artifacts-bucket1/file-1.txt
+      aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
       aws codepipeline start-pipeline-execution --name Compaction_Glue_Pipepine
       else
     - echo "run"
