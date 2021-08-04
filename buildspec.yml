@@ -9,6 +9,7 @@ phases:
     git version
     file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
     echo "$file"
+    for val in $file
     if [ "$file" == "compaction/*"]
     then
     aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
