@@ -11,7 +11,7 @@ phases:
         echo "$file"
         if [ "$file" == "compaction/*" ]
         then
-        aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
+        aws s3 cp $file s3://codepipeline-artifacts-bucket1/
         aws codepipeline start-pipeline-execution --name code-pipelinepoc
         else
         echo "Paat" 
