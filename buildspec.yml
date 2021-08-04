@@ -12,11 +12,11 @@ phases:
       for val in $file
       if [ val == "compaction/*" ]
       then
-      aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
-      aws codepipeline start-pipeline-execution --name Compaction_Glue_Pipepine
+      aws s3 cp $file s3://codepipeline-artifacts-bucket1/
+      aws codepipeline start-pipeline-execution --name code-pipelinepoc
       elif [ val == "Ingestion/*" ]
       then
-      aws s3 cp $file s3://codepipeline-artifacts-bucket1/*
+      aws s3 cp $file s3://codepipeline-artifacts-bucket1/
       aws codepipeline start-pipeline-execution --name IngestionLambdaPipeline
       else
     - echo "running "
