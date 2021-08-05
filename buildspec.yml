@@ -9,10 +9,10 @@ phases:
         git version
         file=`git show --pretty="format:" --name-only $CODEBUILD_RESOLVED_SOURCE_VERSION`
         echo "$file"
-        if [ "$file" == "compaction/text.txt" ]
+        if [ "$file" == "compaction/test.txt" ]
         then
-        aws s3 cp $file s3://codepipeline-artifacts-bucket1/text.txt
+        aws s3 cp $file s3://codepipeline-artifacts-bucket1/test.txt
         aws codepipeline start-pipeline-execution --name code-pipelinepoc
         else
-        echo "democid" 
+        echo "Paat" 
         fi
